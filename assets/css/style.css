@@ -1,0 +1,35 @@
+body {
+    width: 960px;
+    font-size: 18px;
+    line-height: 150%;
+}
+
+header, section, div {
+    border: 1px solid black;
+    padding: 20px;
+    margin: 20px;
+}
+
+h1 {
+    font-size: 48px;
+}
+
+#target-score {
+    width: 250px;
+    float: left;
+}
+
+#result-tracker {
+    width: 150px;
+    float: left;
+}
+
+#image-wrapper {
+    clear: both;
+}
+
+.crystal {
+    width: 200px;
+    border: 1px solid black;
+}
+
