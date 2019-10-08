@@ -8,13 +8,14 @@
         * must be between 1 - 12
     * wins - the number of times the user matched the target score exactly
     * losses - the number of times the user went over the target score
-    * the html element that will change based on whether the user wins or loses
+    * the html elements that will change based on whether the user wins or loses
     
 2. Create an on-click event that begins when one of the crystals is clicked and will run until the score counter equals or is greater than the target score
     * target score is given a random number between 19 - 120
     * score counter is set to 0
     * each crystal value is set to a random number between 1 - 12
-    * when clicked, the value of the clicked crystal is added to the score counter
+    * WHILE score counter is less than target score:
+        - when crystal is clicked, the value of the clicked crystal is added to the score counter
 
 3. If score counter is greater than target score (user loses):
     * the html will inform the user that they lose
@@ -35,20 +36,31 @@ $(document).ready(function () {
 
     var wins = 0;
     var losses = 0;
+    var scoreCounter = 0;
 
+    // html elements that will change
     var winTracker = $("#win-tracker");
     var lossTracker = $("#loss-tracker");
 
-    function targetScore(min, max) {
-        min = Math.ceil(19);
-        max = Math.floor(120);
+    // function to return a random number between a range
+    function randomizer(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    console.log(targetScore(19, 120));
+    // variables to hold function output 
+    var targetScore = randomizer(19, 120);
+    // var crystalValue = randomizer(1, 12);
 
+    console.log(targetScore);
+    console.log(crystalValue);
 
+    while (scoreCounter < targetScore) {
 
+        
+
+    };
 
 
 });
