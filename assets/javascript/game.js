@@ -33,7 +33,19 @@
     
 $(document).ready(function () {
 
+    var wins = 0;
+    var losses = 0;
 
+    var winTracker = $("#win-tracker");
+    var lossTracker = $("#loss-tracker");
+
+    function targetScore(min, max) {
+        min = Math.ceil(19);
+        max = Math.floor(120);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    console.log(targetScore(19, 120));
 
 
 

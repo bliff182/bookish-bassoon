@@ -19,7 +19,7 @@ h1 {
     float: left;
 }
 
-#result-tracker {
+#win-tracker, #loss-tracker {
     width: 150px;
     float: left;
 }
