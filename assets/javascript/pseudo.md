@@ -1,4 +1,4 @@
-/* 1. Create variables to store the following:
+1. Create variables to store the following:
     * target score - the score that the user will try to reach
         * must be between 19 - 120
     * score counter - the number that will increase with each clicked crystal based on the crystal's value; the goal is for this to match the target score
@@ -28,15 +28,4 @@
     * wins will increase by 1
     * target score will change to a different random number between 19 - 120
     * each crystal value will change to a different random number between 1 - 12
-    * score counter will be set to 0 */
-
-    
-$(document).ready(function () {
-
-
-
-
-
-
-
-});
+    * score counter will be set to 0
