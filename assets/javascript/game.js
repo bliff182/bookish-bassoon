@@ -31,36 +31,34 @@
     * each crystal value will change to a different random number between 1 - 12
     * score counter will be set to 0 */
 
-    
+
 $(document).ready(function () {
 
     var wins = 0;
     var losses = 0;
     var scoreCounter = 0;
+    var crystalColors = ["blue", "green", "purple", "white"];
+    // variable to check if crystals have been given number values yet
+    var valuesAssigned = false;
 
-    // html elements that will change
-    var winTracker = $("#win-tracker");
-    var lossTracker = $("#loss-tracker");
-
-    // function to return a random number between a range
+    
+    // function to return a random number between the specified range
     function randomizer(min, max) {
         min = Math.ceil(min);
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    // variables to hold function output 
+    // variables to hold random numbers assigned to target score and crystals for each game
     var targetScore = randomizer(19, 120);
     // var crystalValue = randomizer(1, 12);
 
-    console.log(targetScore);
-    console.log(crystalValue);
+    // html elements that will change
+    var targetTracker = $("#target-score").text("Target: " + targetScore);
+    var winTracker = $("#win-tracker").text("Wins: " + wins);
+    var lossTracker = $("#loss-tracker").text("Losses: " + losses);
+    var scoreTracker = $("#score-counter").text(scoreCounter);
 
-    while (scoreCounter < targetScore) {
-
-        
-
-    };
 
 
 });
