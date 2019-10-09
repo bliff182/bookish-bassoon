@@ -37,11 +37,11 @@ $(document).ready(function () {
     var wins = 0;
     var losses = 0;
     var scoreCounter = 0;
-    var crystalColors = ["blue", "green", "purple", "white"];
+    // var crystalColors = ["blue", "green", "purple", "white"];
     // variable to check if crystals have been given number values yet
     var valuesAssigned = false;
 
-    
+
     // function to return a random number between the specified range
     function randomizer(min, max) {
         min = Math.ceil(min);
@@ -57,8 +57,82 @@ $(document).ready(function () {
     var targetTracker = $("#target-score").text("Target: " + targetScore);
     var winTracker = $("#win-tracker").text("Wins: " + wins);
     var lossTracker = $("#loss-tracker").text("Losses: " + losses);
-    var scoreTracker = $("#score-counter").text(scoreCounter);
+    var scoreTracker = $("#score-counter").text("Score: " + scoreCounter);
+    var winLoseText = $("#win-lose-text").text("Did you win?");
 
 
+// GAMEPLAY
+    // game starts on first button click
+    $("button").on("click", function () {
+        // code to run if crystals have not been given values (main gameplay)
+        if (valuesAssigned !== true) {
+            $("#blue").attr("crystalvalue", randomizer(1, 12));
+            $("#green").attr("crystalvalue", randomizer(1, 12));
+            $("#purple").attr("crystalvalue", randomizer(1, 12));
+            $("#white").attr("crystalvalue", randomizer(1, 12));
+
+            var crystalValue = $(this).attr("crystalvalue");
+
+            // convert string to number
+            crystalValue = parseInt(crystalValue);
+            console.log(crystalValue);
+
+            // add to score counter
+            scoreCounter += crystalValue;
+
+            // display on page 
+            scoreTracker = $("#score-counter").text(scoreCounter);
+
+
+            /* var blueValue = $("#blue").val(randomizer(1, 12));
+            var greenValue = $("#green").val(randomizer(1, 12));
+            var purpleValue = $("#purple").val(randomizer(1, 12));
+            var whiteValue = $("#white").val(randomizer(1, 12)); */
+
+            // convert strings to numbers 
+            /* blueValue = parseInt(blueValue);
+            greenValue = parseInt(greenValue);
+            purpleValue = parseInt(purpleValue);
+            whiteValue = parseInt(whiteValue); */
+
+
+            // prevent further clicks from resetting button values
+            valuesAssigned = true;
+        }
+        else {
+            /* // convert strings to numbers 
+            blueValue = parseInt(blueValue);
+            greenValue = parseInt(greenValue);
+            purpleValue = parseInt(purpleValue);
+            whiteValue = parseInt(whiteValue); */
+
+            // add crystal values to score counter
+            crystalValue = $(this).attr("crystalvalue");
+
+            crystalValue = parseInt(crystalValue);
+           
+            scoreCounter += crystalValue;
+
+            scoreTracker = $("#score-counter").text(scoreCounter);
+        }
+
+// USER WINS
+        if (scoreCounter === targetScore) {
+            winLoseText.textContent = "You win! Click a crystal to go for the next target score!"
+            wins++;
+            scoreCounter = 0;
+            targetScore = randomizer(19, 120);
+            valuesAssigned = false; 
+        }
+// USER LOSES
+        else if (scoreCounter > targetScore) {
+            winLoseText.textContent = ":( You lose. Click a crystal to go for the next target score."
+            losses++;
+            scoreCounter = 0
+            targetScore = randomizer(19, 120);
+            valuesAssigned = false; 
+        }
+
+    })
 
 });
