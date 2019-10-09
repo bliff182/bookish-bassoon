@@ -55,8 +55,8 @@ $(document).ready(function () {
 
     // html to update
     $("#target-score").html("Target Score: " + targetScore);
-    $("#win-tracker").html("Wins: " + wins);
-    $("#loss-tracker").html("Losses: " + losses);
+    $("#win-counter").html("Wins: " + wins);
+    $("#loss-counter").html("Losses: " + losses);
     $("#score-counter").html("Your score: " + scoreCounter);
 
 
@@ -106,7 +106,7 @@ $(document).ready(function () {
         if (scoreCounter === targetScore) {
             $("#win-lose-text").html("You win! Click a crystal to go for the next target score!");
             wins++;
-            $("#win-tracker").html("Wins: " + wins);
+            $("#win-counter").html("Wins: " + wins);
             scoreCounter = 0;
             $("#score-counter").html("Your score: " + scoreCounter);
             targetScore = randomizer(19, 120);
@@ -120,7 +120,7 @@ $(document).ready(function () {
         else if (scoreCounter > targetScore) {
             $("#win-lose-text").html("YOU LOSE! GOOD DAY SIR! (But seriously you can click a crystal to go for the next target score)")
             losses++;
-            $("#loss-tracker").html("Losses: " + losses);
+            $("#loss-counter").html("Losses: " + losses);
             scoreCounter = 0
             $("#score-counter").html("Your score: " + scoreCounter);
             targetScore = randomizer(19, 120);
