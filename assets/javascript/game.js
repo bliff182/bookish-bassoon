@@ -37,7 +37,6 @@ $(document).ready(function () {
     var wins = 0;
     var losses = 0;
     var scoreCounter = 0;
-    // var crystalColors = ["blue", "green", "purple", "white"];
     // variable to check if crystals have been given number values yet
     var valuesAssigned = false;
 
@@ -49,19 +48,19 @@ $(document).ready(function () {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    // variables to hold random numbers assigned to target score and crystals for each game
+
+    // variable to hold random numbers assigned to target score for each game
     var targetScore = randomizer(19, 120);
-    // var crystalValue = randomizer(1, 12);
-
-    // html elements that will change
-    var targetTracker = $("#target-score").text("Target: " + targetScore);
-    var winTracker = $("#win-tracker").text("Wins: " + wins);
-    var lossTracker = $("#loss-tracker").text("Losses: " + losses);
-    var scoreTracker = $("#score-counter").text("Score: " + scoreCounter);
-    var winLoseText = $("#win-lose-text").text("Did you win?");
 
 
-// GAMEPLAY
+    // html to update
+    $("#target-score").html("Target Score: " + targetScore);
+    $("#win-tracker").html("Wins: " + wins);
+    $("#loss-tracker").html("Losses: " + losses);
+    $("#score-counter").html("Your score: " + scoreCounter);
+
+
+    // GAMEPLAY
     // game starts on first button click
     $("button").on("click", function () {
         // code to run if crystals have not been given values (main gameplay)
@@ -73,64 +72,56 @@ $(document).ready(function () {
 
             var crystalValue = $(this).attr("crystalvalue");
 
+            $("#win-lose-text").html("Click the Crystals!")
+
             // convert string to number
             crystalValue = parseInt(crystalValue);
-            console.log(crystalValue);
 
             // add to score counter
             scoreCounter += crystalValue;
-
-            // display on page 
-            scoreTracker = $("#score-counter").text(scoreCounter);
-
-
-            /* var blueValue = $("#blue").val(randomizer(1, 12));
-            var greenValue = $("#green").val(randomizer(1, 12));
-            var purpleValue = $("#purple").val(randomizer(1, 12));
-            var whiteValue = $("#white").val(randomizer(1, 12)); */
-
-            // convert strings to numbers 
-            /* blueValue = parseInt(blueValue);
-            greenValue = parseInt(greenValue);
-            purpleValue = parseInt(purpleValue);
-            whiteValue = parseInt(whiteValue); */
-
+            // update scoreCounter html
+            $("#score-counter").html("Your score: " + scoreCounter);
 
             // prevent further clicks from resetting button values
             valuesAssigned = true;
         }
-        else {
-            /* // convert strings to numbers 
-            blueValue = parseInt(blueValue);
-            greenValue = parseInt(greenValue);
-            purpleValue = parseInt(purpleValue);
-            whiteValue = parseInt(whiteValue); */
 
+        // code to run on subsuquent clicks
+        else {
             // add crystal values to score counter
             crystalValue = $(this).attr("crystalvalue");
 
             crystalValue = parseInt(crystalValue);
-           
+
             scoreCounter += crystalValue;
 
-            scoreTracker = $("#score-counter").text(scoreCounter);
+            $("#score-counter").html("Your score: " + scoreCounter);
         }
 
-// USER WINS
+        // USER WINS
         if (scoreCounter === targetScore) {
-            winLoseText.textContent = "You win! Click a crystal to go for the next target score!"
+            $("#win-lose-text").html("You win! Click a crystal to go for the next target score!");
             wins++;
+            $("#win-tracker").html("Wins: " + wins);
             scoreCounter = 0;
+            $("#score-counter").html("Your score: " + scoreCounter);
             targetScore = randomizer(19, 120);
-            valuesAssigned = false; 
+            $("#target-score").html("Target Score: " + targetScore);
+
+            valuesAssigned = false;
+
         }
-// USER LOSES
+        // USER LOSES
         else if (scoreCounter > targetScore) {
-            winLoseText.textContent = ":( You lose. Click a crystal to go for the next target score."
+            $("#win-lose-text").html(":( You lose. Click  crystal to go for the next target score.")
             losses++;
+            $("#loss-tracker").html("Losses: " + losses);
             scoreCounter = 0
+            $("#score-counter").html("Your score: " + scoreCounter);
             targetScore = randomizer(19, 120);
-            valuesAssigned = false; 
+            $("#target-score").html("Target Score: " + targetScore);
+
+            valuesAssigned = false;
         }
 
     })
