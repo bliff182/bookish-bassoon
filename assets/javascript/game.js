@@ -64,12 +64,16 @@ $(document).ready(function () {
     // game starts on first button click
     $("button").on("click", function () {
         // code to run if crystals have not been given values (main gameplay)
-        if (valuesAssigned !== true) {
+        if (!valuesAssigned) {
+            
+            // crystal buttons given crystalvalue attribute equal to a random number between 1-12
+            // also, this is repetitive. How can this be cleaned up?
             $("#blue").attr("crystalvalue", randomizer(1, 12));
             $("#green").attr("crystalvalue", randomizer(1, 12));
             $("#purple").attr("crystalvalue", randomizer(1, 12));
             $("#white").attr("crystalvalue", randomizer(1, 12));
 
+            // crystalValue is assigned the value of the specific crystal that was clicked (THIS crystal)
             var crystalValue = $(this).attr("crystalvalue");
 
             $("#win-lose-text").html("Click the Crystals!")
@@ -113,7 +117,7 @@ $(document).ready(function () {
         }
         // USER LOSES
         else if (scoreCounter > targetScore) {
-            $("#win-lose-text").html(":( You lose. Click  crystal to go for the next target score.")
+            $("#win-lose-text").html(":( You lose. Click a crystal to go for the next target score.")
             losses++;
             $("#loss-tracker").html("Losses: " + losses);
             scoreCounter = 0

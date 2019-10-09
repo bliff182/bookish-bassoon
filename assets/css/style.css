@@ -2,6 +2,7 @@ body {
     width: 960px;
     font-size: 18px;
     line-height: 150%;
+    margin: auto;
 }
 
 header, section, div {
@@ -24,8 +25,13 @@ h1 {
     float: left;
 }
 
-#image-wrapper {
+#win-lose-text {
     clear: both;
+}
+
+#image-wrapper {
+    /* clear: both; */
+    text-align: center;
 }
 
 img {
