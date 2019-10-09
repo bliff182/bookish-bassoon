@@ -1,33 +1,45 @@
 body {
+    background: url("../images/hotel-wallpaper-black/hotel-wallpaper-black.png");
+    color: white;
+    font-family: 'Grenze', serif; 
     width: 960px;
-    font-size: 18px;
+    font-size: 24px;
     line-height: 150%;
     margin: auto;
 }
 
 header, section, div {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 20px;
     margin: 20px;
 }
 
 h1 {
-    font-size: 48px;
+    font-size: 100px;
+    text-align: center;
+    margin-bottom: 30px;
+    /* margin-bottom: 40px; */
 }
 
-#target-score {
-    width: 250px;
-    float: left;
+.scoreboard {
+    position: fixed;
+    background: black;
+    font-size: 20px;
+    top: 0;
+    left: 0;
+    padding: 5px;
+    border: 1px solid white;
 }
 
-#win-tracker, #loss-tracker {
-    width: 150px;
-    float: left;
+.game-info {
+    text-align: center;
 }
 
 #win-lose-text {
-    clear: both;
+    font-size: 40px;
+    text-align: center;
 }
+
 
 #image-wrapper {
     /* clear: both; */

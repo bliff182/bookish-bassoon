@@ -9,6 +9,8 @@
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
+    <link href="https://fonts.googleapis.com/css?family=Grenze&display=swap" rel="stylesheet">
+
     <title>Crystal Collector</title>
 
 </head>
@@ -18,6 +20,13 @@
     <header>
         <h1>Crystal Collector!</h1>
     </header>
+    
+    <div class="scoreboard">
+        <div id="target-score"></div>
+        <div id="score-counter"></div>
+        <div id="win-tracker"></div>
+        <div id="loss-tracker"></div>
+    </div>
 
     <section class="game-info">
         <p>You will be given a random number at the start of the game. This is your target score.</p>
@@ -30,22 +39,16 @@
         <p>Good luck!</p>
     </section>
 
-    <div id="target-score">Target score placeholder</div>
-
-    <div id="win-tracker"></div>
-    <div id="loss-tracker"></div>
-
     <div id="win-lose-text">Click the Crystals!</div>
 
     <div id="image-wrapper">
         <button class="crystal-btn" id="blue"><img src="assets/images/crystal-blue.png" alt="Blue Crystal"></button>
         <button class="crystal-btn" id="green"><img src="assets/images/crystal-green.png" alt="Green Crystal"></button>
-        <button class="crystal-btn" id="purple"><img src="assets/images/crystal-purple.png" alt="Purple Crystal"></button>
+        <button class="crystal-btn" id="purple"><img src="assets/images/crystal-purple.png"
+                alt="Purple Crystal"></button>
         <button class="crystal-btn" id="white"><img src="assets/images/crystal-white.png" alt="White Crystal"></button>
     </div>
 
-
-    <div id="score-counter"></div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>

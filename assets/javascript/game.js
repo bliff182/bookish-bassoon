@@ -14,7 +14,7 @@
     * target score is given a random number between 19 - 120
     * score counter is set to 0
     * each crystal value is set to a random number between 1 - 12
-    * WHILE score counter is less than target score:
+    * IF score counter is less than target score:
         - when crystal is clicked, the value of the clicked crystal is added to the score counter
 
 3. If score counter is greater than target score (user loses):
@@ -66,15 +66,15 @@ $(document).ready(function () {
         // code to run if crystals have not been given values (main gameplay)
         if (!valuesAssigned) {
             
-            // crystal buttons given crystalvalue attribute equal to a random number between 1-12
+            // crystal buttons given crystal-value attribute equal to a random number between 1-12
             // also, this is repetitive. How can this be cleaned up?
-            $("#blue").attr("crystalvalue", randomizer(1, 12));
-            $("#green").attr("crystalvalue", randomizer(1, 12));
-            $("#purple").attr("crystalvalue", randomizer(1, 12));
-            $("#white").attr("crystalvalue", randomizer(1, 12));
+            $("#blue").attr("crystal-value", randomizer(1, 12));
+            $("#green").attr("crystal-value", randomizer(1, 12));
+            $("#purple").attr("crystal-value", randomizer(1, 12));
+            $("#white").attr("crystal-value", randomizer(1, 12));
 
             // crystalValue is assigned the value of the specific crystal that was clicked (THIS crystal)
-            var crystalValue = $(this).attr("crystalvalue");
+            var crystalValue = $(this).attr("crystal-value");
 
             $("#win-lose-text").html("Click the Crystals!")
 
@@ -93,7 +93,7 @@ $(document).ready(function () {
         // code to run on subsuquent clicks
         else {
             // add crystal values to score counter
-            crystalValue = $(this).attr("crystalvalue");
+            crystalValue = $(this).attr("crystal-value");
 
             crystalValue = parseInt(crystalValue);
 
@@ -115,9 +115,10 @@ $(document).ready(function () {
             valuesAssigned = false;
 
         }
+
         // USER LOSES
         else if (scoreCounter > targetScore) {
-            $("#win-lose-text").html(":( You lose. Click a crystal to go for the next target score.")
+            $("#win-lose-text").html("YOU LOSE! GOOD DAY SIR! (But seriously you can click a crystal to go for the next target score)")
             losses++;
             $("#loss-tracker").html("Losses: " + losses);
             scoreCounter = 0
