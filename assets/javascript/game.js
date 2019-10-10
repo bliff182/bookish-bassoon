@@ -1,37 +1,3 @@
-/* 1. Create variables to store the following:
-    * target score - the score that the user will try to reach
-        * must be between 19 - 120
-    * score counter - the number that will increase with each clicked crystal based on the crystal's value; the goal is for this to match the target score
-        * starts at 0
-    * crystal value - the number value of each crystal
-        * four of these
-        * must be between 1 - 12
-    * wins - the number of times the user matched the target score exactly
-    * losses - the number of times the user went over the target score
-    * the html elements that will change based on whether the user wins or loses
-    
-2. Create an on-click event that begins when one of the crystals is clicked and will run until the score counter equals or is greater than the target score
-    * target score is given a random number between 19 - 120
-    * score counter is set to 0
-    * each crystal value is set to a random number between 1 - 12
-    * IF score counter is less than target score:
-        - when crystal is clicked, the value of the clicked crystal is added to the score counter
-
-3. If score counter is greater than target score (user loses):
-    * the html will inform the user that they lose
-    * losses will increase by 1
-    * target score will change to a different random number between 19 - 120
-    * each crystal value will change to a different random number between 1 - 12
-    * score counter will be set to 0
-
-4. If score counter equals target score (user wins):
-    * html will inform the user that they win
-    * wins will increase by 1
-    * target score will change to a different random number between 19 - 120
-    * each crystal value will change to a different random number between 1 - 12
-    * score counter will be set to 0 */
-
-
 $(document).ready(function () {
 
     var wins = 0;
@@ -65,7 +31,7 @@ $(document).ready(function () {
     $("button").on("click", function () {
         // code to run if crystals have not been given values (main gameplay)
         if (!valuesAssigned) {
-            
+
             // crystal buttons given crystal-value attribute equal to a random number between 1-12
             // also, this is repetitive. How can this be cleaned up?
             $("#blue").attr("crystal-value", randomizer(1, 12));
